@@ -1,2 +1,2 @@
 # socketChat
-Chat client built with socket.io
+Chat client built with [socket.io](http://socket.io/)
