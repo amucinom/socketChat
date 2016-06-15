@@ -1,10 +1,26 @@
-var app = require('express')();
-var http = require('http').Server(app);
+var express = require('express');
+var app = express();
+var http = require('http').createServer(app);
+var io = require('socket.io')(http);
 
-app.get('/', function (req, res) {
-	res.send('<h1>Hello World</h1>');
+app
+	.use(express.static('./client'))
+	.get('/', function (req, res) {
+		res.sendFile('client/index.html', {"root": "."} );
+	});
+
+http.listen(3000, function() {
+	console.log('listening on *:3000');
 });
 
-http.listen(3000, function () {
-	console.log('Magic happens on localhost:3000');
+io.on('connection', function(socket) {
+	console.log('Client connected...');
+
+	socket.on('chat message', function (msg) {
+		console.log('message: ' + msg);
+	});
+
+	socket.on('disconnect', function () {
+		console.log('Client disconnected...');
+	});
 });

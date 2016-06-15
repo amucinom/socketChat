@@ -1,0 +1,25 @@
+{
+  "name": "socketchat",
+  "description": "My first socket.io chat app",
+  "main": "index.js",
+  "authors": [
+    "Aldo Mucino <amucinom@gmail.com>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "socket.io",
+    "node.js"
+  ],
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.0.0"
+  }
+}
